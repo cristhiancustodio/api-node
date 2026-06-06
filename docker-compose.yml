@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    image: interseguro-api:latest
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+    # For dev: uncomment volume and command lines below
+    # volumes:
+    #   - ./:/usr/src/app
+    # command: npm run dev
